@@ -13,14 +13,11 @@
     <hgroup>
         <h3>Network Handshakes</h3>
         <h4>Captured: {{file_list|length}}</h4>
-
     </hgroup>
     <table>
         {% for file in file_list%}
         <tr>
-            <td>
-                <a href="{{ url_for('uploads', path=file) }}">{{ file }}</a>
-            </td>
+            <td><a href="{{ url_for('uploads', path=file) }}">{{ file }}</a></td>
         </tr>
         {% endfor %}
     </table>
