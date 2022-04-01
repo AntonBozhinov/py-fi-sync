@@ -15,7 +15,6 @@ os.makedirs(content_dir, exist_ok=True)
 @app.get("/")
 async def root(request: Request):
     file_list = os.listdir(content_dir)
-    print(file_list)
     return templates.TemplateResponse("index.html", {
         "request": request,
         "file_list": file_list
