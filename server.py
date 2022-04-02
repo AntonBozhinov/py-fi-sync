@@ -1,25 +1,10 @@
 import os
-import smtplib
 
 from fastapi import FastAPI, UploadFile, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from email.message import EmailMessage
 
-gmail_user = os.environ.get("GMAIL_USER")
-gmail_password = os.environ.get("GMAIL_PASSWORD")
-
-
-def has_mail_enabled():
-    return gmail_user and gmail_password
-
-
-if has_mail_enabled():
-    mail_session = smtplib.SMTP('smtp.gmail.com', 587)
-    mail_session.helo()
-    mail_session.ehlo()
-    mail_session.starttls()
-    mail_session.login(gmail_user, gmail_password)
+from mail import send_mail, gmail_user
 
 app = FastAPI()
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
@@ -44,13 +29,5 @@ async def create_upload_file(file: UploadFile):
     with open(f"/{content_dir}/{file.filename}", "wb") as f:
         f.write(content)
 
-    if has_mail_enabled():
-        msg = EmailMessage()
-
-        msg['Subject'] = 'Pwngotchi Upload'
-        msg['From'] = gmail_user
-        msg['To'] = gmail_user
-
-        msg.set_content(f"File {file.filename} uploaded")
-        mail_session.send_message(msg)
+    send_mail(gmail_user, "Pwngotchi upload", f"{file.filename} has been uploaded")
     return {"filename": file.filename}
