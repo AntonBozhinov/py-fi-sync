@@ -41,6 +41,14 @@ Add the executable to your PATH.
 export PATH=$PATH:$PWD/dist
 ```
 
+### Client Usage
+The client takes a directory and a server address to sync with.
+
+```bash
+watcher ./data http://localhost:8000
+```
+The above command will watch the directory `./data` for created files and upload them to the server.
+
 ### Running the server:
 Run the server with the `uvicorn` command.
 
