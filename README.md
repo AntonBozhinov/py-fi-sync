@@ -1,4 +1,5 @@
-# Python client and server for file sync across multiple machines
+# py-fsync
+Python client and server for file sync across multiple machines
 
 ### Requirements
 
