@@ -1,10 +1,10 @@
 # Python client and server for file sync across multiple machines
 
-## Requirements
+### Requirements
 
 Ptyhon 3.6 or later
 
-## Installation
+### Installation
 Create virtual environment:
 
 ```bash
@@ -23,7 +23,7 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
-## Building the client:
+### Building the client:
 
 The client is built with the `install.sh` script.
 You will need`pyinstaller` installed. 
@@ -40,7 +40,7 @@ Add the executable to your PATH.
 export PATH=$PATH:$PWD/dist
 ```
 
-## Running the server:
+### Running the server:
 Run the server with the `uvicorn` command.
 
 ```bash
