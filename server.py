@@ -29,5 +29,5 @@ async def create_upload_file(file: UploadFile):
     with open(f"/{content_dir}/{file.filename}", "wb") as f:
         f.write(content)
 
-    send_mail(gmail_user, "Pwngotchi upload", f"{file.filename} has been uploaded")
+    send_mail(gmail_user, "File Uploaded", f"{file.filename}")
     return {"filename": file.filename}

@@ -1,4 +1,4 @@
-# Python client and server for flat directory sync across multiple machines
+# Python client and server for file sync across multiple machines
 
 ## Requirements
 

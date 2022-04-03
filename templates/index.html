@@ -6,13 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-    <title>Document</title>
+    <title>Uploaded Files</title>
 </head>
 <body>
 <main class="container">
     <hgroup>
-        <h3>Network Handshakes</h3>
-        <h4>Captured: {{file_list|length}}</h4>
+        <h3>Uploaded files</h3>
+        <h4>Total: {{file_list|length}}</h4>
     </hgroup>
     <table>
         {% for file in file_list%}
